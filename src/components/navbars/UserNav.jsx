@@ -3,21 +3,22 @@ import styles from "../css/style.module.css";
 import logo from './images/logo.png'
 
 //get the user details from the session
-function DeliveryAdminNavBarGoGo() {
+function UserNav() {
   return (
     <header className="fixed-top">
       <div className={styles.main_container}>
         <nav className={styles.navbar}>
-          <img src={logo} style={{ width: "50px", height: "50px", marginLeft: "70px" }}></img>
-          <h4
-            style={{ color: "white", marginLeft: "-580px", marginTop: "7px" }}
-          >
-            Go Go Gadgets Store
+          <img alt="Images is loading.." src={logo} style={{ width: "50px", height: "50px", marginLeft: "70px" }}></img>
+          <h4 style={{ color: "black", marginLeft: "-150px", marginTop: "7px" }}>
+            Go Go Royal Expression Transport Service
           </h4>
           <nav>
-            <a href="/delivery-home">DASHBOARD</a>
-            <a href="#">ABOUT US</a>
-            <a href="/">LOGOUT</a>
+            <a href="/"> Home </a>
+            <a href="/"> Generate QR </a>
+            <a href="/"> Time Table</a>
+            <a href="/"> About Us</a>
+            <a href="/"> Contact Us</a>
+            <a href="/"> Log Out</a>
           </nav>
         </nav>
       </div>
@@ -25,4 +26,4 @@ function DeliveryAdminNavBarGoGo() {
   );
 }
 
-export default DeliveryAdminNavBarGoGo;
+export default UserNav;
