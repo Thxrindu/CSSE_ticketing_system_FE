@@ -17,15 +17,13 @@ function Navigation() {
             <Route exact path="/" element={<UserHome/>}/>
             <Route path='/userHome' element={<UserHome />} />
 
-
             <Route path='/travel-history' element={< TravelHistory />} />
             <Route path='/bus-time-table' element={< BusTimeTable />} />
             <Route path='/assign-bus' element={< AssignBus />} />
 
             <Route path='/sidebar1' element={< AdminSidebar1 />} />
             <Route path='/update' element={< UpdateAssignBus />} />
-
-
+            
         </Routes>
     )
 }
