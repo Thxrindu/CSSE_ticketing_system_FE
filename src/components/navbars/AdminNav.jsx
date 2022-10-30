@@ -3,7 +3,7 @@ import styles from "../css/style.module.css";
 import logo from './images/logo.png'
 
 //get the user details from the session
-function UserNav() {
+function AdminNav() {
   return (
     <header className="fixed-top">
       <div className={styles.main_container}>
@@ -26,4 +26,4 @@ function UserNav() {
   );
 }
 
-export default UserNav;
+export default AdminNav;

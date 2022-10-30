@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import AdminNav from '../../navbars/AdminNav';
 import './style.css';
 
 
@@ -62,6 +63,9 @@ const AdminSidebar1 = () => {
                     </li>
                 </ul>
             </section>
+
+
+            <AdminNav/>
 
 
         </div>

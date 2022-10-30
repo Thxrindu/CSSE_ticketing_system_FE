@@ -19,7 +19,6 @@ function Navigation() {
             <Route exact path="/" element={<UserHome/>}/>
             <Route path='/userHome' element={<UserHome />} />
 
-
             <Route path='/travel-history' element={< TravelHistory />} />
             <Route path='/bus-time-table' element={< BusTimeTable />} />
             <Route path='/assign-bus' element={< AssignBus />} />
@@ -27,8 +26,7 @@ function Navigation() {
             <Route path='/passengers-report' element={< PassengerReport />} />
             <Route path='/sidebar1' element={< AdminSidebar1 />} />
             <Route path='/dashboard' element={< AdminDashboard />} />
-
-
+            
         </Routes>
     )
 }
