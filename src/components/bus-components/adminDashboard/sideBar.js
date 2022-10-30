@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import AdminNav from '../../navbars/AdminNav';
 import './style.css';
 
 
@@ -16,7 +17,7 @@ const AdminSidebar1 = () => {
                 </a>
                 <ul class="side-menu top">
                     <li class="">
-                        <a href="#">
+                        <a href="/dashboard">
                             <i class='bx bxs-dashboard' ></i>
                             <span class="text">Dashboard</span>
                         </a>
@@ -39,6 +40,18 @@ const AdminSidebar1 = () => {
                             <span class="text">Bus Timetable</span>
                         </a>
                     </li>
+                    <li>
+                        <a href="/all-passengers">
+                            <i class='bx bxs-message-dots' ></i>
+                            <span class="text">Passengers</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/passengers-report">
+                            <i class='bx bxs-message-dots' ></i>
+                            <span class="text">Passenger Report</span>
+                        </a>
+                    </li>
                 </ul>
                 <ul class="side-menu">
 
@@ -50,6 +63,9 @@ const AdminSidebar1 = () => {
                     </li>
                 </ul>
             </section>
+
+
+            <AdminNav/>
 
 
         </div>

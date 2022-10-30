@@ -1,5 +1,5 @@
 import axios from "axios";
-import {  Modal } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
 import { Fragment, useEffect, useState } from "react";
 import DataTable from "react-data-table-component";
 import "./allUsers.css";
@@ -29,53 +29,53 @@ function TravelHistory() {
             name: 'Date',
             selector: row => row.busDate,
             sortable: true,
-            width: "170px"
+            width: "110px"
         },
         {
             name: 'Bus No',
             selector: row => row.busNo,
-            width: '160px'
+            width: '100px'
         },
         {
             name: 'Start location',
             selector: row => row.startLocation,
             sortable: true,
-            width: '350px'
+            width: '130px'
 
         },
         {
             name: 'Starting Time',
             selector: row => row.startingTime,
             sortable: true,
-            width: '350px'
+            width: '130px'
 
         },
         {
             name: 'Arrive Location',
             selector: row => row.arriveLocation,
             sortable: true,
-            width: '250px'
+            width: '130px'
 
         },
         {
             name: 'Arriving Time',
             selector: row => row.arriveTime,
             sortable: true,
-            width: '350px'
+            width: '130px'
 
         },
         {
             name: 'Assign Driver',
             selector: row => row.driverName,
             sortable: true,
-            width: '350px'
+            width: '150px'
 
         },
         {
             name: 'Assign Inspector',
             selector: row => row.inspectorName,
             sortable: true,
-            width: '250px'
+            width: '150px'
 
         },
         {
@@ -171,45 +171,46 @@ function TravelHistory() {
     // const ModalContent = () => {
     //     return (
     //         <Modal show={updateModal} onHide={closeUpdateModal} backdrop="static" size="lg">
-             
-           
+
+
     //         </Modal>
     //     )
     // }
 
     return (
         <>
-{/* <AdminSidebar1/> */}
-            <div className="container bkgrnd">
+            <AdminSidebar1 />
+            <div className="travelContainer">
+                <div className="container bkgrnd">
 
-                <h1 className="header">Travel History</h1>
+                    <h1 className="header">Travel History</h1>
 
-                <div className="tbl">
-                    <DataTable
-                        columns={columns}
-                        data={filteredItems}
-                        pagination
-                        fixedHeader
-                        fixedHeaderScrollHeight="500px"
-                        highlightOnHover
-                        subHeader
-                        subHeaderComponent={
-                            <>
-                                <input
-                                    type="text"
-                                    placeholder="Search here.."
-                                    className="w-25 form-control"
-                                    value={search}
-                                    onChange={(e) => setSearch(e.target.value)}
-                                />
-                                <button className={styles.can_btn} style={{ marginLeft: "15px" }} onClick={clearData}> Clear</button>
-                                
-                            </>
-                        }
-                    />
-                    {/* {updateModal ? <ModalContent /> : null} */}
+                    <div className="tbl">
+                        <DataTable
+                            columns={columns}
+                            data={filteredItems}
+                            pagination
+                            fixedHeader
+                            fixedHeaderScrollHeight="500px"
+                            highlightOnHover
+                            subHeader
+                            subHeaderComponent={
+                                <>
+                                    <input
+                                        type="text"
+                                        placeholder="Search Bus Number.."
+                                        className="w-25 form-control"
+                                        value={search}
+                                        onChange={(e) => setSearch(e.target.value)}
+                                    />
+                                    <button className={styles.can_btn} style={{ marginLeft: "15px" }} onClick={clearData}> Clear</button>
+
+                                </>
+                            }
+                        />
+                        {/* {updateModal ? <ModalContent /> : null} */}
+                    </div>
                 </div>
-
             </div>
 
         </>

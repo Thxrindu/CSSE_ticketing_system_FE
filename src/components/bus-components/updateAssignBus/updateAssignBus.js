@@ -122,13 +122,15 @@ const UpdateAssignBus = () => {
             noOfPassengers: noOfPassengers
         }
 
-        const a = window.sessionStorage.getItem('UserDetails');
+        const a = window.sessionStorage.getItem('busDetails');
         console.log("aaaaaaaaaaa",a)
 
 
-        axios.post('http://localhost:5050/bus/update-profile/' + a, busDetails)
+        axios.post('http://localhost:5050/bus/update/' + a, busDetails)
 
             .then((res) => {
+
+                console.log("after updates" , res)
 
                 Swal.fire({
                     title: "Success!",
@@ -138,7 +140,7 @@ const UpdateAssignBus = () => {
                 })
 
                 setTimeout(() => {
-                    window.location = "/user-profile";
+                    window.location = "/bus-time-table";
                 }, 2000)
             })
 
@@ -155,12 +157,12 @@ const UpdateAssignBus = () => {
             <div>
                 <div>
 
-                    <div className="">
-                        <form onSubmit={handleSubmit}>
+                    <div >
+                        <form onSubmit={handleSubmit} >
                             <h2 style={{ marginTop: "50px", marginBottom: "30px", marginLeft: "100px" }}>Travel Details</h2>
                             <Container>
                                 <Row>
-                                    <Col xs={6} md={6}>
+                                    <Col>
                                         <label style={{ fontWeight: "bold" }} >Enter Date    :</label><br></br>
                                         <input
                                             type="date"
@@ -174,7 +176,7 @@ const UpdateAssignBus = () => {
 
                                 </Row>
                                 <Row>
-                                    <Col xs={6} md={6}>
+                                    <Col>
                                         <label style={{ fontWeight: "bold" }}>Bus No    :</label><br></br>
                                         <input
                                             type="text"
@@ -188,7 +190,7 @@ const UpdateAssignBus = () => {
                                     </Col>
                                 </Row>
                                 <Row>
-                                    <Col xs={9} md={6}>
+                                    <Col>
                                         <label style={{ fontWeight: "bold" }}>Starting Location    :</label><br></br>
                                         <input
                                             type="text"
@@ -203,7 +205,7 @@ const UpdateAssignBus = () => {
 
                                 </Row>
                                 <Row>
-                                    <Col xs={9} md={6}>
+                                    <Col>
                                         <label style={{ fontWeight: "bold" }}>Arrive Location    :</label><br></br>
                                         <input
                                             type="text"
@@ -218,7 +220,7 @@ const UpdateAssignBus = () => {
                                 </Row>
 
                                 <Row>
-                                    <Col xs={9} md={6}>
+                                    <Col>
                                         <label style={{ fontWeight: "bold" }}>Starting Time    :</label><br></br>
                                         <input
                                             type="text"
@@ -233,7 +235,7 @@ const UpdateAssignBus = () => {
 
                                 </Row>
                                 <Row>
-                                    <Col xs={9} md={6}>
+                                    <Col>
                                         <label style={{ fontWeight: "bold" }}>Arrive Time   :</label><br></br>
                                         <input
                                             type="text"
@@ -253,7 +255,7 @@ const UpdateAssignBus = () => {
 
                             <Container>
                                 <Row>
-                                    <Col xs={9} md={6}>
+                                    <Col>
                                         <label style={{ fontWeight: "bold" }}>Assign Driver    :</label><br></br>
                                         <input
                                             type="text"
@@ -268,7 +270,7 @@ const UpdateAssignBus = () => {
 
                                 </Row>
                                 <Row>
-                                    <Col xs={9} md={6}>
+                                    <Col>
                                         <label style={{ fontWeight: "bold" }}>Driver Contact    :</label><br></br>
                                         <input
                                             type="text"
@@ -288,7 +290,7 @@ const UpdateAssignBus = () => {
 
                             <Container>
                                 <Row>
-                                    <Col xs={9} md={6}>
+                                    <Col>
                                         <label style={{ fontWeight: "bold" }}>Assign Inspector    :</label><br></br>
                                         <input
                                             type="text"
@@ -303,7 +305,7 @@ const UpdateAssignBus = () => {
 
                                 </Row>
                                 <Row>
-                                    <Col xs={9} md={6}>
+                                    <Col>
                                         <label style={{ fontWeight: "bold" }}>Inspector Contact    :</label><br></br>
                                         <input
                                             type="text"
@@ -318,7 +320,8 @@ const UpdateAssignBus = () => {
                                 </Row>
 
 
-                                <button type='submit' className="btn btn-success" style={{ marginBottom: "50px", marginTop: "35px", marginLeft: "10px" }}>Assign Now</button>
+                                <button type='submit' className="btn btn-success" style={{ marginBottom: "50px", marginTop: "35px", marginLeft: "320px"}}>Update</button>
+
                             </Container>
                         </form>
 
