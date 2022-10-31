@@ -16,7 +16,7 @@ import UpdateAssignBus from "../updateAssignBus/updateAssignBus";
 // import UpdatePoliceFinesDetails from "../update/updatePoliceFineData";
 
 
-function AllPassengers() {
+function LocalPassengers() {
 
     const [items, setItems] = useState([]);
     const [search, setSearch] = useState("");
@@ -62,10 +62,21 @@ function AllPassengers() {
         try {
             const user = JSON.parse(sessionStorage.getItem("policemen"));
             const response = await axios.get('http://localhost:5050/passenger');
-            console.log("response Local", response.data[0].type)
+            console.log("response Local", response.data)
 
-            setItems(response.data);
-            setFilteredItems(response.data);
+            let temp = [];
+
+            for (let i = 0; i < response.data.length; i++) {
+                if (response.data[i].type === 'Local') {
+                    console.log("locaaaaaaaaaaaaaal", response.data[i])
+
+                    temp.push(response.data[i])
+            
+                }
+            }
+
+            setItems(temp);
+            setFilteredItems(temp);
 
         } catch (err) {
             console.log(err);
@@ -95,7 +106,7 @@ function AllPassengers() {
             <div className="travelContainer">
                 <div className="container bkgrnd">
 
-                    <h1 className="header">Passengers Details</h1>
+                    <h1 className="header">Local Passengers Details</h1>
 
                     <div className="tbl">
                         <DataTable
@@ -129,4 +140,4 @@ function AllPassengers() {
 
 }
 
-export default AllPassengers;
+export default LocalPassengers;
