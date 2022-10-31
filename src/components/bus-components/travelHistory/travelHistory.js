@@ -125,9 +125,30 @@ function TravelHistory() {
         try {
             const user = JSON.parse(sessionStorage.getItem("policemen"));
             const response = await axios.get('http://localhost:5050/bus/');
+
             console.log("response", response)
-            setItems(response.data);
-            setFilteredItems(response.data);
+            // setItems(response.data);
+            // setFilteredItems(response.data);
+
+            const currentDate = new Date();
+            const today = `${currentDate.getFullYear()}-${currentDate.getMonth() + 1}-${currentDate.getDate()}`;
+
+
+            let temp = [];
+
+            for (let i = 0; i < response.data.length; i++) {
+                if (response.data[i].busDate.split("T")[0] < today) {
+                    console.log("historyyyyyyyyyyyyyyyy", response.data[i])
+
+                    temp.push(response.data[i])
+            
+                }
+            }
+            setItems(temp);
+            setFilteredItems(temp);
+
+            console.log("historyyyyy 11111111111", temp)
+
         } catch (err) {
             console.log(err);
         }

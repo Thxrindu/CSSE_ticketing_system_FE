@@ -7,10 +7,11 @@ import AdminDashboard from '../components/bus-components/adminDashboard/dashboar
 import AdminSidebar1 from '../components/bus-components/adminDashboard/sideBar';
 import AssignBus from '../components/bus-components/assignBus/assignBus';
 import BusTimeTable from '../components/bus-components/busTimeTable/busTimeTable';
-import AllPassengers from '../components/bus-components/passengers/allPassengers';
 import PassengerReport from '../components/bus-components/passengerReport/passengerReport';
 import TravelHistory from '../components/bus-components/travelHistory/travelHistory';
 import UserHome from '../components/user-components/user-home';
+import ForeignPassenger from '../components/bus-components/foreignPassengers/foreignPassengers';
+import LocalPassengers from '../components/bus-components/localPassengers/localPassengers';
 
 function Navigation() {
     return (
@@ -22,7 +23,8 @@ function Navigation() {
             <Route path='/travel-history' element={< TravelHistory />} />
             <Route path='/bus-time-table' element={< BusTimeTable />} />
             <Route path='/assign-bus' element={< AssignBus />} />
-            <Route path='/all-passengers' element={< AllPassengers />} />
+            <Route path='/local-passengers' element={< LocalPassengers />} />
+            <Route path='/foreign-passengers' element={< ForeignPassenger />} />
             <Route path='/passengers-report' element={< PassengerReport />} />
             <Route path='/sidebar1' element={< AdminSidebar1 />} />
             <Route path='/dashboard' element={< AdminDashboard />} />

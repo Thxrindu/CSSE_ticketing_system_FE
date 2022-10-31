@@ -7,6 +7,8 @@ import 'react-calendar/dist/Calendar.css';
 import { PieChart } from 'react-minimal-pie-chart';
 import axios from "axios";
 import { Chart } from "react-google-charts";
+import "./admin-report.css"
+
 
 const AdminDashboard = () => {
 
@@ -100,55 +102,56 @@ const AdminDashboard = () => {
     return (
         <div >
             <AdminSidebar1 />
-            <div className="container" style={{ marginLeft: "350px", marginTop: "20px" , marginBottom:"20px" }}>
-                <table>
-                    <thead>
-                        <tr>
-                            <td>
-                                <div class="card">
-                                    <img style={{ marginLeft: "230px", marginTop: "20px", width: "200px", borderRadius: "25px" }} src="../images/bus2.png"></img>
-                                    <h4 style={{ textAlign: "center" }}><b>Total Number of Buses</b></h4>
-                                    <h5 style={{ textAlign: "center" }} >{BusCount}</h5>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="card2" style={{ width: "", marginLeft: "50px" }}>
-                                    <Calendar onChange={onChange} value={value} />
-                                </div>
-                            </td>
+            <div className="section-to-print">
+                <div className="container" style={{ marginLeft: "350px", marginTop: "100px", marginBottom: "20px" }}>
+                    <table>
+                        <thead>
+                            <tr>
+                                <td>
+                                    <div class="card">
+                                        <img style={{ marginLeft: "230px", marginTop: "20px", width: "200px", borderRadius: "25px" }} src="../images/bus2.png"></img>
+                                        <h4 style={{ textAlign: "center" }}><b>Total Number of Buses</b></h4>
+                                        <h5 style={{ textAlign: "center" }} >{BusCount}</h5>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="card2" style={{ width: "", marginLeft: "50px" }}>
+                                        <Calendar onChange={onChange} value={value} />
+                                    </div>
+                                </td>
 
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="card1">
-                                    <img style={{ marginLeft: "140px", marginTop: "20px", width: "200px", borderRadius: "25px" }} src="../images/money1.png"></img>
-                                    <h4 style={{ textAlign: "center" }}><b>Total Fares Today</b></h4>
-                                    <h5 style={{ textAlign: "center" }} >Rs. 14,000/=</h5>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="card1" style={{ width: "", marginLeft: "-100px" }}>
-                                    <img style={{ marginLeft: "140px", marginTop: "20px", width: "200px", borderRadius: "25px" }} src="../images/money2.png"></img>
-                                    <h4 style={{ textAlign: "center" }}><b>Total Finance Today</b></h4>
-                                    <h5 style={{ textAlign: "center" }} >Rs. 1,500/=</h5>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            
-                        </tr>
-                    </thead>
-                </table>
-                <div style={{ marginTop: "20px", marginLeft: "0px" , width:"1050px"}}>
-                                <Chart
-                                    chartType="PieChart"
-                                    data={data01}
-                                    options={options1}
-                                    width={"100%"}
-                                    height={"400px"}
-                                />
-                            </div>
-                {/* <Container> */}
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="card1">
+                                        <img style={{ marginLeft: "140px", marginTop: "20px", width: "200px", borderRadius: "25px" }} src="../images/money1.png"></img>
+                                        <h4 style={{ textAlign: "center" }}><b>Total Fares Today</b></h4>
+                                        <h5 style={{ textAlign: "center" }} >Rs. 14,000/=</h5>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="card1" style={{ width: "", marginLeft: "-100px" }}>
+                                        <img style={{ marginLeft: "140px", marginTop: "20px", width: "200px", borderRadius: "25px" }} src="../images/money2.png"></img>
+                                        <h4 style={{ textAlign: "center" }}><b>Total Finance Today</b></h4>
+                                        <h5 style={{ textAlign: "center" }} >Rs. 1,500/=</h5>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+
+                            </tr>
+                        </thead>
+                    </table>
+                    <div style={{ marginTop: "20px", marginLeft: "0px", width: "1050px" }}>
+                        <Chart
+                            chartType="PieChart"
+                            data={data01}
+                            options={options1}
+                            width={"100%"}
+                            height={"400px"}
+                        />
+                    </div>
+                    {/* <Container> */}
                     {/* <Row>
                         <Col xs={6} md={6}>
                             <div class="card">
@@ -191,6 +194,14 @@ const AdminDashboard = () => {
                         </Col>
                     </Row>
                 </Container> */}
+
+
+
+
+                </div>
+            </div>
+            <div style={{ textAlign: "center", marginBottom: "30px" }}>
+                <button className="reportbtn" style={{backgroundColor:"rgba(0, 254, 8, 0.852)" , borderRadius:"10px" , height:"30px" , marginLeft:"500px"}} onClick={() => window.print()}>Print</button>
             </div>
 
         </div>

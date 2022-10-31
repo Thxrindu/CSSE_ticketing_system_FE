@@ -34,7 +34,7 @@ function BusTimeTable() {
         {
             name: 'Bus No',
             selector: row => row.busNo,
-            width: '100px'
+            width: '90px'
         },
         {
             name: 'Start location',
