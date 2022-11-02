@@ -1,12 +1,31 @@
-import React from 'react'
-import { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
+import axios from "axios";
+import '../css/myAcc.css'
 
 function MyAccount() {
 
-    const [name, setName] = useState('S.M.T.N.Samarakoon');
-    const [email, setEmail] = useState('tharindu@gmail.com');
-    const [id, setId] = useState('1999163ddfg79947V');
+    const [_id] = useState('635bd6e436b91a241f0b4078')
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [id, setId] = useState('');
+    const [contact, setContact] = useState('');
+
+    const getItems = async () => {
+        try {
+            const response = await axios.get('http://localhost:5050/passenger/' + _id);
+            setName(response.data.name);
+            setEmail(response.data.email);
+            setId(response.data.idNumber);
+            setContact(response.data.contactNo);
+        } catch (err) {
+            console.log(err);
+        }
+    }
+
+    useEffect(() => {
+        getItems();
+    }, [])
 
     return (
         <div style={{
@@ -22,35 +41,47 @@ function MyAccount() {
             <h2 style={{ textAlign: 'center' }}> My Account</h2>
             <hr></hr>
 
-            <Container>
-                <Row>
-                    <Col>
-                        <h5 style={{ color: 'darkBlue' }}> Name</h5>
-                    </Col>
-                    <Col> : </Col>
-                    <Col>
-                        <h3 style={{ color: 'darkBlue', fontWeight: 'bold' }}> {name} </h3>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col>
-                        <h5 style={{ color: '#128a76' }}> Email</h5>
-                    </Col>
-                    <Col> : </Col>
-                    <Col>
-                        <h3 style={{ color: '#128a76', fontWeight: 'bold' }}> {email} </h3>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col>
-                        <h5 style={{ color: 'grey' }}> ID</h5>
-                    </Col>
-                    <Col> : </Col>
-                    <Col>
-                        <h3 style={{ color: 'grey', fontWeight: 'bold' }}> {id} </h3>
-                    </Col>
-                </Row>
-            </Container>
+            <table>
+                <tbody>
+                <tr >
+                    <td className='tbl'>
+                        <h4 style={{ color: 'darkBlue' }}> Name</h4>
+                    </td>
+                    <td> : </td>
+                    <td className='tbl'
+                    >
+                        <h4 style={{ color: 'darkBlue', fontWeight: 'bold' }}> {name} </h4>
+                    </td>
+                </tr>
+                <tr>
+                    <td className='tbl'>
+                        <h4 style={{ color: '#128a76' }}> Email</h4>
+                    </td>
+                    <td> : </td>
+                    <td className='tbl'>
+                        <h4 style={{ color: '#128a76', fontWeight: 'bold' }}> {email} </h4>
+                    </td>
+                </tr>
+                <tr>
+                    <td className='tbl'>
+                        <h4 style={{ color: 'grey' }}> ID</h4>
+                    </td>
+                    <td> : </td>
+                    <td className='tbl'>
+                        <h4 style={{ color: 'grey', fontWeight: 'bold' }}> {id} </h4>
+                    </td>
+                </tr>
+                <tr>
+                    <td className='tbl'>
+                        <h4 style={{ color: 'grey' }}> Contact No</h4>
+                    </td>
+                    <td> : </td>
+                    <td className='tbl'>
+                        <h4 style={{ color: 'grey', fontWeight: 'bold' }}> {contact} </h4>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
 
         </div>
     )
