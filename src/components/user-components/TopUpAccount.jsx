@@ -72,13 +72,13 @@ function TopUpAccount() {
                             style={{ borderRadius: '6px', width: '100%' }} required/>
                         </Col>
                     </Row>
-                    <Row style={{ marginTop: '5px' }}>
+                    {/* <Row style={{ marginTop: '5px' }}>
                         <Col>
                             <h6> Select Payment Type</h6>
                         </Col>
                         <Col>
                         </Col>
-                    </Row>
+                    </Row> */}
                     <Row style={{ marginTop: '5px' }}>
                         <Col>
                             <h6> Account Holder Name</h6>
@@ -97,8 +97,7 @@ function TopUpAccount() {
                         <Col>
                             <h6> Account No</h6>
                         </Col>
-                        <Col>
-                            
+                        <Col         
                             <input maxLength={16} pattern="[0-9]{16}"  className='frm' type="text" title='Please enter 16 digits card number' placeholder='XXXX-XXXX-XXXX-XXXX' style={{ borderRadius: '6px', width: '75%' }} required/>
                             <input maxLength={3} pattern="[0-9]{3}"  className='frm' type="text" title='Please enter 3 digits CVC number' placeholder='CVC' style={{ borderRadius: '6px', width: '25%' }} required/>
                         </Col>

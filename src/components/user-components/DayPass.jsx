@@ -33,9 +33,9 @@ function DayPass() {
 
     let temp1 = true;
     if (dailyPass < 1667898599999)
-        temp1 = true;
-    else
         temp1 = false;
+    else
+        temp1 = true;
 
 
     const handleSubmit = (e) => {
@@ -102,6 +102,7 @@ function DayPass() {
 
             <center>
                 <form onSubmit={handleSubmit}>
+
                     <input
                         disabled={temp1}
                         type='submit'
