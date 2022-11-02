@@ -17,12 +17,15 @@ const AdminSidebar1 = () => {
                     <span  style={{color:"black" , marginLeft:"40px", marginTop:"20px"}} >Admin Dashboard</span>
                 </a>
                 <ul class="side-menu top">
+                    <span>Dashboard</span>
                     <li class="" >
                         <a href="/dashboard" >
                             <i class='bx bxs-dashboard' ></i>
                             <span class="text" style={{fontWeight:"bold"}}>Dashboard</span>
                         </a>
                     </li>
+                    <br></br>
+                    <span>Bus Details</span>
                     <li>
                         <a href="/travel-history" >
                             <i class='bx bxs-time' ></i>
@@ -41,6 +44,8 @@ const AdminSidebar1 = () => {
                             <span class="text">Bus Timetable</span>
                         </a>
                     </li>
+                    <br></br>
+                    <span>Passenger Details</span>
                     <li>
                         <a href="/foreign-passengers" className='sideBarBtn'>
                             <i class='bx bxs-smile' ></i>
@@ -53,6 +58,9 @@ const AdminSidebar1 = () => {
                             <span class="text"> Local Passengers</span>
                         </a>
                     </li>
+
+                    <br></br>
+                    <span>Report</span>
                     <li>
                         <a href="/passengers-report" className='sideBarBtn'>
                             <i class='bx bxs-report' ></i>

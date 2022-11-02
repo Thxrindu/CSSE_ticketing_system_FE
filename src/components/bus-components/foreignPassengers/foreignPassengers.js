@@ -28,7 +28,7 @@ function ForeignPassenger() {
         {
             name: 'Passenger Type',
             selector: row => row.type,
-            width: '150px'
+            width: '140px'
         },
         {
             name: 'Passenger NIC',
@@ -39,13 +39,13 @@ function ForeignPassenger() {
             name: 'Passenger Name',
             selector: row => row.name,
             sortable: true,
-            width: "250px"
+            width: "240px"
         },
         {
             name: 'Contact No',
             selector: row => row.contactNo,
             sortable: true,
-            width: '250px'
+            width: '240px'
 
         },
         {
@@ -90,7 +90,7 @@ function ForeignPassenger() {
     // normal search
     useEffect(() => {
         const result = items.filter((item) => {
-            return item.idNumber.toLowerCase().match(search.toLowerCase());
+            return item.idNumber.toLowerCase().match(search.toLowerCase()) || item.name.toLowerCase().match(search.toLowerCase());
         });
         setFilteredItems(result);
     }, [search])

@@ -6,6 +6,11 @@ import './style.css';
 import AdminSidebar1 from "../adminDashboard/sideBar";
 const AssignBus = () => {
 
+    
+    const currentDate = new Date();
+    const today = (currentDate.getFullYear() + '-' + ((currentDate.getMonth() > 8) ? (currentDate.getMonth() + 1) : ('0' + (currentDate.getMonth() + 1))) + '-' + ((currentDate.getDate() > 9) ? currentDate.getDate() : ('0' + currentDate.getDate())));
+
+
     const [data, setData] = useState({
         busDate: "",
         busNo: "",
@@ -249,6 +254,7 @@ const AssignBus = () => {
                                     <input
                                         type="date"
                                         name='busDate'
+                                        min={today}
                                         onChange={handleChange}
                                         value={data.busDate}
                                         required
@@ -297,7 +303,7 @@ const AssignBus = () => {
                                 <Col >
                                     <input
                                         type="text"
-                                        placeholder='Your Arrive Location'
+                                        placeholder='Arrive Location'
                                         name='arriveLocation'
                                         onChange={handleChange}
                                         value={data.arriveLocation}
@@ -313,8 +319,7 @@ const AssignBus = () => {
                                 </Col>
                                 <Col >
                                     <input
-                                        type="text"
-                                        placeholder='Starting Time'
+                                        type="time"
                                         name='startingTime'
                                         onChange={handleChange}
                                         value={data.startingTime}
@@ -330,8 +335,7 @@ const AssignBus = () => {
                                 </Col>
                                 <Col >
                                     <input
-                                        type="text"
-                                        placeholder='Arrive Time'
+                                        type="time"
                                         name='arriveTime'
                                         onChange={handleChange}
                                         value={data.arriveTime}
@@ -353,6 +357,8 @@ const AssignBus = () => {
                                 <Col >
                                     <input
                                         type="text"
+                                        pattern="[A-Za-z]{1,50}"
+                                        title="Assign Driver length should not exceed 50 characters and not valid any numbers"
                                         placeholder='Assign Driver name'
                                         name='driverName'
                                         onChange={handleChange}
@@ -370,7 +376,9 @@ const AssignBus = () => {
                                 <Col >
 
                                     <input
-                                        type="text"
+                                        type="tel"
+                                        pattern="[0-9]{10}"
+                                        title="Driver Contact length should not exceed 10 numbers and not valid any characters"
                                         placeholder='Driver Contact'
                                         name='driverContact'
                                         onChange={handleChange}
@@ -393,6 +401,8 @@ const AssignBus = () => {
                                 <Col >
                                     <input
                                         type="text"
+                                        pattern="[A-Za-z]{1,50}"
+                                        title="Assign Inspector length should not exceed 50 characters and not valid any numbers"
                                         placeholder='Assign Inspector name'
                                         name='inspectorName'
                                         onChange={handleChange}
@@ -410,7 +420,9 @@ const AssignBus = () => {
                                 <Col >
 
                                     <input
-                                        type="text"
+                                        type="tel"
+                                        pattern="[0-9]{10}"
+                                        title="Inspector Contact length should not exceed 10 numbers and not valid any characters"
                                         placeholder='Driver Contact'
                                         name='inspectorContact'
                                         onChange={handleChange}
