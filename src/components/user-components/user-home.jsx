@@ -20,6 +20,8 @@ function UserHome() {
     const [color2, setColor2] = useState('');
     const [color3, setColor3] = useState('');
     const [color4, setColor4] = useState('');
+    const [color5, setColor5] = useState('');
+    const [color6, setColor6] = useState('');
 
     const setView = (n) => {
         if (n === 1){
@@ -30,6 +32,9 @@ function UserHome() {
             setShow5(false);
             setColor1('rgba(0, 254, 8, 0.852)');
             setColor2();
+            setColor3('');
+            setColor4('');
+            setColor5('');
         } else if (n === 2){
             setShow1(false);
             setShow2(true);
@@ -38,6 +43,9 @@ function UserHome() {
             setShow5(false);
             setColor1('');
             setColor2('rgba(0, 254, 8, 0.852)');
+            setColor3('');
+            setColor4('');
+            setColor5('');
         } else if (n === 3){
             setShow1(false);
             setShow2(false);
@@ -48,6 +56,7 @@ function UserHome() {
             setColor2('');
             setColor3('rgba(0, 254, 8, 0.852)');
             setColor4('');
+            setColor5('');
         } else if (n === 4){
             setShow1(false);
             setShow2(false);
@@ -58,6 +67,7 @@ function UserHome() {
             setColor2('');
             setColor3('');
             setColor4('rgba(0, 254, 8, 0.852)');
+            setColor5('');
         } else if( n=== 5) {
             setShow1(false);
             setShow2(false);
@@ -67,6 +77,8 @@ function UserHome() {
             setColor1('');
             setColor2('');
             setColor3('');
+            setColor4('');
+            setColor5('rgba(0, 254, 8, 0.852)');
         }
     }
 
@@ -86,16 +98,16 @@ function UserHome() {
                                 <button style={{backgroundColor:color2}} className='btns btn' onClick={() => setView(2)}> My Balance </button>
                             </Row>
                             <Row>
-                                <button className='btns btn' onClick={() => setView(3)}> Top Up Account </button>
+                                <button style={{backgroundColor:color3}} className='btns btn' onClick={() => setView(3)}> Top Up Account </button>
                             </Row>
                             <Row>
-                                <button className='btns btn' onClick={() => setView(4)}> Get a Day Pass </button>
+                                <button style={{backgroundColor:color4}} className='btns btn' onClick={() => setView(4)}> Get a Day Pass </button>
                             </Row>
                             <Row>
-                                <button className='btns btn' onClick={() => setView(5)}> Quick Loan </button>
+                                <button style={{backgroundColor:color5}} className='btns btn' onClick={() => setView(5)}> Quick Loan </button>
                             </Row>
                             <Row>
-                                <button className='btns btn' onClick={() => setView(6)}> Travel History </button>
+                                <button style={{backgroundColor:color6}} className='btns btn' onClick={() => setView(6)}> Travel History </button>
                             </Row>
                             
                         </Col>

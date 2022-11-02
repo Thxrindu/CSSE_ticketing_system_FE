@@ -1,10 +1,40 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import Swal from "sweetalert2";
+import axios from 'axios';
 
 function QuickLoan() {
 
-    const [loan, setLoan] = useState(500.00);
-    const [date, setDate] = useState('2022/03/03');
-    const [loanStatus, setLoanStatus] = useState(true);
+    const [id, setId] = useState('635bd6e436b91a241f0b4078')
+    const [loan, setLoan] = useState(500);
+    const [loanStatus, setLoanStatus] = useState(false);
+    const current = new Date();
+    const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
+
+    const getLoan = (e) => {
+        e.preventDefault();
+        const loans = {
+            id: id,
+            loanAmount: 500,
+            loanDate: date
+        }
+
+        const balance = {
+            id: id,
+            rechargeAmount: loan
+        }
+
+        axios.post('http://localhost:5050/loan/add', loans)
+            .then(res => { 
+                Swal.fire({
+                    title: 'Success!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                    }
+                })
+            });
+        
+        axios.post('http://localhost:5050/wallet/updatebalance', balance)
+    }
 
     return (
         <div style={{
@@ -32,26 +62,32 @@ function QuickLoan() {
                 <h1 style={{ color: 'white', fontWeight: 'bold' }}>
                     Rs.{loan}/=
                 </h1>
-                <h3 style={{ fontWeight: 'bold', color: '#471163' }}> Date : {date} </h3>
+                <h3 style={{ fontWeight: 'bold', color: '#471163' }}> Date : ? </h3>
             </div>
 
             <center>
-                { loanStatus ? <button disabled
+                <form onSubmit={getLoan}>
+                { loanStatus ? <input disabled
+                    type='submit'
                     className='btn btn-lg'
+                    value='Get a Quick Loan'
+                    style={{
+                        backgroundColor: 'rgba(0, 254, 8, 0.852)',
+                        borderRadius: '15px',
+                        marginBottom: '20px',
+                        width:'300px',
+                    }} /> :
+                    <input
+                    type='submit'
+                    className='btn btn-lg'
+                    value='Get a Quick Loan'
                     style={{
                         backgroundColor: 'rgba(0, 254, 8, 0.852)',
                         borderRadius: '15px',
                         marginBottom: '20px',
                         width:'300px'
-                    }}> Get a Quick Loan </button> :
-                    <button 
-                    className='btn btn-lg'
-                    style={{
-                        backgroundColor: 'rgba(0, 254, 8, 0.852)',
-                        borderRadius: '15px',
-                        marginBottom: '20px',
-                        width:'300px'
-                    }}> Get a Quick Loan </button>}
+                    }} />}
+                </form>
                 <button
                     className='btn btn-lg'
                     style={{
