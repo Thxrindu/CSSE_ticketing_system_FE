@@ -35,9 +35,9 @@ function DayPass() {
 
     let temp1 = true;
     if (dailyPass < 1667898599999)
-        temp1 = true;
-    else
         temp1 = false;
+    else
+        temp1 = true;
     
 
     const handleSubmit = (e) => {
@@ -105,7 +105,7 @@ function DayPass() {
             <center>
                 <form onSubmit={handleSubmit}>
                 <input 
-                disabled={temp1}
+                disabled={true}
                     type='submit'
                     className='btn btn-lg'
                     value="Get Day Pass"
@@ -114,7 +114,7 @@ function DayPass() {
                         borderRadius: '15px',
                         marginBottom: '20px',
                     }} />
-                { temp1 ? <h5 style={{color:'red'}}> 
+                { true ? <h5 style={{color:'red'}}> 
                 Wait until the current day pass expires to activate a new one</h5> : null}
                 </form>
                 <h5 style={{fontWeight:'bold'}}> Time Remaining    : </h5>

@@ -1,13 +1,13 @@
 import React from 'react';
 import UserNav from '../navbars/UserNav';
 import { Container, Row, Col } from 'react-grid-system';
-import './user_home.css';
 import { useState } from 'react';
 import MyAccount from './MyAccount';
 import MyBalance from './MyBalance';
 import TopUpAccount from './TopUpAccount';
 import DayPass from './DayPass';
 import QuickLoan from './QuickLoan';
+import '../css/userHome.css';
 
 function UserHome() {
 
@@ -21,7 +21,7 @@ function UserHome() {
     const [color3, setColor3] = useState('');
     const [color4, setColor4] = useState('');
     const [color5, setColor5] = useState('');
-    const [color6, setColor6] = useState('');
+    const [color6] = useState('');
 
     const setView = (n) => {
         if (n === 1){

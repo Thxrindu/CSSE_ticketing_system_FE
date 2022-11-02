@@ -48,7 +48,7 @@ function QuickLoan() {
             minHeight: '445px'
         }}>
 
-            <h2 style={{ textAlign: 'center' }}> Your previous loan  </h2>
+            <h2 style={{ textAlign: 'center' }}> Get a loan  </h2>
             <div style={{
                 backgroundColor: 'rgba(214, 25, 192, 0.792)',
                 borderRadius: '15px',
@@ -62,7 +62,7 @@ function QuickLoan() {
                 <h1 style={{ color: 'white', fontWeight: 'bold' }}>
                     Rs.{loan}/=
                 </h1>
-                <h3 style={{ fontWeight: 'bold', color: '#471163' }}> Date : ? </h3>
+                {/* <h3 style={{ fontWeight: 'bold', color: '#471163' }}> Date : ? </h3> */}
             </div>
 
             <center>
