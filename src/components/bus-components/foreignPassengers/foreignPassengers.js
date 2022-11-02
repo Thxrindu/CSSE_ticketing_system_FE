@@ -1,19 +1,10 @@
 import axios from "axios";
-import { Modal } from "react-bootstrap";
-import { Fragment, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import DataTable from "react-data-table-component";
 import "./allUsers.css";
 import "./tabledata.css";
 import styles from './style.module.css';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowAltCircleLeft } from "@fortawesome/free-regular-svg-icons";
-import Swal from "sweetalert2";
-import { Link } from "react-router-dom";
 import AdminSidebar1 from "../adminDashboard/sideBar";
-import { Col, Container, Row } from "react-bootstrap";
-import UpdateAssignBus from "../updateAssignBus/updateAssignBus";
-// import InsertPoliceFinesDetails from "../insert/insertPoliceFineData";
-// import UpdatePoliceFinesDetails from "../update/updatePoliceFineData";
 
 
 function ForeignPassenger() {
@@ -62,16 +53,14 @@ function ForeignPassenger() {
         try {
             const user = JSON.parse(sessionStorage.getItem("policemen"));
             const response = await axios.get('http://localhost:5050/passenger');
-            console.log("response foreign", response.data)
 
             let temp = [];
 
             for (let i = 0; i < response.data.length; i++) {
                 if (response.data[i].type === 'Foreign') {
-                    console.log("Foreginnnnnnnn", response.data[i])
 
                     temp.push(response.data[i])
-            
+
                 }
             }
 
@@ -79,7 +68,6 @@ function ForeignPassenger() {
             setFilteredItems(temp);
 
         } catch (err) {
-            console.log(err);
         }
     }
 

@@ -19,7 +19,6 @@ function MyAccount() {
             setId(response.data.idNumber);
             setContact(response.data.contactNo);
         } catch (err) {
-            console.log(err);
         }
     }
 
@@ -43,43 +42,43 @@ function MyAccount() {
 
             <table>
                 <tbody>
-                <tr >
-                    <td className='tblth'>
-                        <h4 style={{ color: 'darkBlue' }}> Name</h4>
-                    </td>
-                    <td> : </td>
-                    <td className='tblth'
-                    >
-                        <h4 style={{ color: 'darkBlue', fontWeight: 'bold' }}> {name} </h4>
-                    </td>
-                </tr>
-                <tr>
-                    <td className='tblth'>
-                        <h4 style={{ color: '#128a76' }}> Email</h4>
-                    </td>
-                    <td> : </td>
-                    <td className='tblth'>
-                        <h4 style={{ color: '#128a76', fontWeight: 'bold' }}> {email} </h4>
-                    </td>
-                </tr>
-                <tr>
-                    <td className='tblth'>
-                        <h4 style={{ color: 'grey' }}> ID</h4>
-                    </td>
-                    <td> : </td>
-                    <td className='tblth'>
-                        <h4 style={{ color: 'grey', fontWeight: 'bold' }}> {id} </h4>
-                    </td>
-                </tr>
-                <tr>
-                    <td className='tblth'>
-                        <h4 style={{ color: 'grey' }}> Contact No</h4>
-                    </td>
-                    <td> : </td>
-                    <td className='tblth'>
-                        <h4 style={{ color: 'grey', fontWeight: 'bold' }}> {contact} </h4>
-                    </td>
-                </tr>
+                    <tr >
+                        <td className='tblth'>
+                            <h4 style={{ color: 'darkBlue' }}> Name</h4>
+                        </td>
+                        <td> : </td>
+                        <td className='tblth'
+                        >
+                            <h4 style={{ color: 'darkBlue', fontWeight: 'bold' }}> {name} </h4>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td className='tblth'>
+                            <h4 style={{ color: '#128a76' }}> Email</h4>
+                        </td>
+                        <td> : </td>
+                        <td className='tblth'>
+                            <h4 style={{ color: '#128a76', fontWeight: 'bold' }}> {email} </h4>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td className='tblth'>
+                            <h4 style={{ color: 'grey' }}> ID</h4>
+                        </td>
+                        <td> : </td>
+                        <td className='tblth'>
+                            <h4 style={{ color: 'grey', fontWeight: 'bold' }}> {id} </h4>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td className='tblth'>
+                            <h4 style={{ color: 'grey' }}> Contact No</h4>
+                        </td>
+                        <td> : </td>
+                        <td className='tblth'>
+                            <h4 style={{ color: 'grey', fontWeight: 'bold' }}> {contact} </h4>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
 

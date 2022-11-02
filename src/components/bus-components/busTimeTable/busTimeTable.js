@@ -1,19 +1,14 @@
 import axios from "axios";
-import { Button, Form, Modal } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
 import { Fragment, useEffect, useState } from "react";
 import DataTable from "react-data-table-component";
 import "./allUsers.css";
 import "./tabledata.css";
 import styles from './style.module.css';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowAltCircleLeft } from "@fortawesome/free-regular-svg-icons";
 import Swal from "sweetalert2";
-import { Link } from "react-router-dom";
 import UpdateAssignBus from "../updateAssignBus/updateAssignBus";
 import AssignBus from "../assignBus/assignBus";
 import AdminSidebar1 from "../adminDashboard/sideBar";
-// import InsertPoliceFinesDetails from "../insert/insertPoliceFineData";
-// import UpdatePoliceFinesDetails from "../update/updatePoliceFineData";
 
 
 function BusTimeTable() {
@@ -125,11 +120,9 @@ function BusTimeTable() {
         try {
 
             const response = await axios.get('http://localhost:5050/bus/');
-            console.log("response", response)
             setItems(response.data);
             setFilteredItems(response.data);
         } catch (err) {
-            console.log(err);
         }
     }
 
@@ -173,28 +166,11 @@ function BusTimeTable() {
 
     }
 
-    const goBack = () => {
-        // window.location = "/user-admin-dashboard"
-    }
-
-
-
-
-
-
-
-
-
-    // const openInsertModal = () => {
-    //     setModal(true);
-    // }
-
     const closeInsertModal = () => setModal(false);
 
     const openUpdateModal = (data) => {
         setUpdateModal(true);
         window.sessionStorage.setItem("busDetails", data);
-        console.log("bustimetable", data)
 
     }
 
@@ -223,68 +199,7 @@ function BusTimeTable() {
             <div className="timeTableContainer">
                 <div className="container bkgrnd">
 
-                    {/* <Link onClick={goBack} to="#" className="backLink">
-                        <FontAwesomeIcon icon={faArrowAltCircleLeft} />
-                        &nbsp;Go Back
-                    </Link> */}
                     <h1 className="header">Bus TimeTable</h1>
-                    {/* <form onSubmit={handleSubmit}> */}
-                        {/* <table style={{ marginLeft: "550px", marginBottom: "-20px" }}>
-                            <thead>
-                                <tr>
-                                    <td>
-                                        <div >
-                                            <label>From Date     :</label><br></br>
-                                            <input
-                                                type="Date"
-                                                placeholder="Date"
-                                                name="fromDate"
-                                                onChange={handleChange}
-                                                value={data.fromDate}
-                                                required
-                                                className={styles.input}
-                                            />
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div style={{ marginLeft: "10px" }}>
-                                            <label>To Date      :</label><br></br>
-                                            <input
-                                                type="Date"
-                                                placeholder="Date"
-                                                name="toDate"
-                                                onChange={handleChange}
-                                                value={data.toDate}
-                                                required
-                                                className={styles.input}
-                                            />
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div style={{ marginLeft: "10px", marginTop: "20px" }}>
-                                            <button className={styles.g_button} type="submit">
-                                                Search
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </thead>
-                        </table> */}
-                        {/* <table style={{ marginLeft: "790px" }}>
-                            <tr>
-                                <td>
-                                    <div style={{ marginLeft: "0px" }}>
-                                        <button className={styles.g_button} type="submit">
-                                            Search
-                                        </button>
-                                        <button className={styles.can_btn} style={{ marginLeft: "15px" }} onClick={clearData}>
-                                            Clear
-                                        </button>
-                                    </div>
-                                </td>
-                            </tr>
-                        </table> */}
-                    {/* </form> */}
                     <div className="tbl">
                         <DataTable
                             columns={columns}
@@ -296,48 +211,48 @@ function BusTimeTable() {
                             subHeader
                             subHeaderComponent={
                                 <>
-                                <form onSubmit={handleSubmit}>
-                                    <table style={{ marginLeft: "550px", marginBottom: "-60px" }}>
-                                        <thead>
-                                            <tr>
-                                                <td>
-                                                    <div >
-                                                        <label>From Date     :</label><br></br>
-                                                        <input
-                                                            type="Date"
-                                                            placeholder="Date"
-                                                            name="fromDate"
-                                                            onChange={handleChange}
-                                                            value={data.fromDate}
-                                                            required
-                                                            className={styles.input}
-                                                        />
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div style={{ marginLeft: "10px" }}>
-                                                        <label>To Date      :</label><br></br>
-                                                        <input
-                                                            type="Date"
-                                                            placeholder="Date"
-                                                            name="toDate"
-                                                            onChange={handleChange}
-                                                            value={data.toDate}
-                                                            required
-                                                            className={styles.input}
-                                                        />
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div style={{ marginLeft: "10px", marginTop: "20px" }}>
-                                                        <button className={styles.g_button} type="submit">
-                                                            Search
-                                                        </button>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        </thead>
-                                    </table>
+                                    <form onSubmit={handleSubmit}>
+                                        <table style={{ marginLeft: "550px", marginBottom: "-60px" }}>
+                                            <thead>
+                                                <tr>
+                                                    <td>
+                                                        <div >
+                                                            <label>From Date     :</label><br></br>
+                                                            <input
+                                                                type="Date"
+                                                                placeholder="Date"
+                                                                name="fromDate"
+                                                                onChange={handleChange}
+                                                                value={data.fromDate}
+                                                                required
+                                                                className={styles.input}
+                                                            />
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div style={{ marginLeft: "10px" }}>
+                                                            <label>To Date      :</label><br></br>
+                                                            <input
+                                                                type="Date"
+                                                                placeholder="Date"
+                                                                name="toDate"
+                                                                onChange={handleChange}
+                                                                value={data.toDate}
+                                                                required
+                                                                className={styles.input}
+                                                            />
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div style={{ marginLeft: "10px", marginTop: "20px" }}>
+                                                            <button className={styles.g_button} type="submit">
+                                                                Search
+                                                            </button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </thead>
+                                        </table>
                                     </form>
                                     <input
                                         type="text"
@@ -347,7 +262,7 @@ function BusTimeTable() {
                                         onChange={(e) => setSearch(e.target.value)}
                                     />
                                     <button className={styles.can_btn} style={{ marginLeft: "15px" }} onClick={clearData}> Clear</button>
-                                    {/* <button className="addBtn btn btn-outline-dark" style={{ width: '100%' }} onClick={openInsertModal}> Add New Police Fine </button> */}
+
                                 </>
                             }
                         />

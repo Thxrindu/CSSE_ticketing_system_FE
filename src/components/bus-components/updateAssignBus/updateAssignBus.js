@@ -67,22 +67,12 @@ const UpdateAssignBus = () => {
         setNoOfPassengers(event.target.value)
     }
 
-    console.log("mata baaaaaaaaaaaaaaaaaaaaaaaaaa")
-
-    const x = async () => {
-
-        console.log(JSON.parse(sessionStorage.getItem("busDetails")))
-    }
     const getUser = async () => {
         try {
-            // const bus = JSON.parse(sessionStorage.getItem("busDetails"));
-            // console.log("update session ", bus)
             const a = window.sessionStorage.getItem('busDetails');
-            console.log("aaaaaaaaaaa", a)
 
             const response = await axios.get('http://localhost:5050/bus/' + a);
 
-            console.log("update response", response)
             setBusDate(response.data.busDate.split("T")[0]);
             setBusNo(response.data.busNo);
             setDriverName(response.data.driverName);
@@ -97,13 +87,11 @@ const UpdateAssignBus = () => {
             setStartingTime(response.data.startingTime);
             setTotalAmount(response.data.totalAmount);
         } catch (err) {
-            //console.log(err);
         }
     }
 
     useEffect(() => {
         getUser();
-        x();
     }, [])
 
     const handleSubmit = (e) => {
@@ -126,14 +114,11 @@ const UpdateAssignBus = () => {
         }
 
         const a = window.sessionStorage.getItem('busDetails');
-        console.log("aaaaaaaaaaa", a)
 
 
         axios.post('http://localhost:5050/bus/update/' + a, busDetails)
 
             .then((res) => {
-
-                console.log("after updates", res)
 
                 Swal.fire({
                     title: "Success!",
@@ -150,9 +135,6 @@ const UpdateAssignBus = () => {
 
     }
 
-    const CancelButton = () => {
-        window.location = "/user-profile";
-    }
 
     return (
 
