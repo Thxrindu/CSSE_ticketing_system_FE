@@ -1,10 +1,8 @@
 import AdminSidebar1 from "../adminDashboard/sideBar";
-import { Col, Container, Row } from "react-bootstrap";
 import React, { useState, useEffect } from 'react';
 import Calendar from 'react-calendar';
 import './dashboard.css';
 import 'react-calendar/dist/Calendar.css';
-import { PieChart } from 'react-minimal-pie-chart';
 import axios from "axios";
 import { Chart } from "react-google-charts";
 import "./admin-passenger-report.css"
@@ -31,7 +29,6 @@ const PassengerReport = () => {
                 }
             }
 
-            console.log("local count", count2)
 
         })
     }
@@ -40,7 +37,6 @@ const PassengerReport = () => {
     function getItems() {
         axios.get("http://localhost:5050/passenger").then((res) => {
 
-            console.log("all bus", res.data)
 
             setItems(res.data);
             setBusDate(res.data.busDate);
@@ -52,7 +48,6 @@ const PassengerReport = () => {
             }
             setPassengersCount(count);
 
-            console.log("bus count", PassengersCount)
 
 
         })

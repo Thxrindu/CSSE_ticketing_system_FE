@@ -20,7 +20,6 @@ function DayPass() {
             const response = await axios.get('http://localhost:5050/wallet/');
             setDailyPass(response.data[0].dayPass);
         } catch (err) {
-            console.log(err);
         }
     }
 
@@ -29,7 +28,6 @@ function DayPass() {
             const response = await axios.post('http://localhost:5050/wallet/findwallet/' + id);
             setBalance(response.data[0].accountBalance);
         } catch (err) {
-            console.log(err);
         }
     }
 
@@ -38,26 +36,26 @@ function DayPass() {
         temp1 = true;
     else
         temp1 = false;
-    
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
         const daypass = {
             id: id,
-            dayPass : dateTimeAfterOneDay
+            dayPass: dateTimeAfterOneDay
         }
 
-        if (balance < pass){
+        if (balance < pass) {
             Swal.fire({
                 title: 'Insufficient Balance!',
-                icon:'warning'
+                icon: 'warning'
             }).then((result) => {
                 if (result.isConfirmed) {
                 }
             })
         } else {
             axios.post('http://localhost:5050/wallet/updatedaypass', daypass)
-                .then(res => { 
+                .then(res => {
                     Swal.fire({
                         title: 'Successfully Updated!'
                     }).then((result) => {
@@ -68,7 +66,7 @@ function DayPass() {
                 });
         }
     }
-    
+
     useEffect(() => {
         getItems();
         getWallet();
@@ -104,20 +102,20 @@ function DayPass() {
 
             <center>
                 <form onSubmit={handleSubmit}>
-                <input 
-                disabled={temp1}
-                    type='submit'
-                    className='btn btn-lg'
-                    value="Get Day Pass"
-                    style={{
-                        backgroundColor: 'rgba(0, 254, 8, 0.852)',
-                        borderRadius: '15px',
-                        marginBottom: '20px',
-                    }} />
-                { temp1 ? <h5 style={{color:'red'}}> 
-                Wait until the current day pass expires to activate a new one</h5> : null}
+                    <input
+                        disabled={temp1}
+                        type='submit'
+                        className='btn btn-lg'
+                        value="Get Day Pass"
+                        style={{
+                            backgroundColor: 'rgba(0, 254, 8, 0.852)',
+                            borderRadius: '15px',
+                            marginBottom: '20px',
+                        }} />
+                    {temp1 ? <h5 style={{ color: 'red' }}>
+                        Wait until the current day pass expires to activate a new one</h5> : null}
                 </form>
-                <h5 style={{fontWeight:'bold'}}> Time Remaining    : </h5>
+                <h5 style={{ fontWeight: 'bold' }}> Time Remaining    : </h5>
             </center>
 
             <CountdownTimer targetDate={dailyPass} />
