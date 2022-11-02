@@ -10,7 +10,7 @@ function AdminNav() {
         <nav className={styles.navbar}>
           <img alt="Images is loading.." src={logo} style={{ width: "50px", height: "50px", marginLeft: "70px" }}></img>
           <h4 style={{ color: "black", marginLeft: "300px", marginTop: "7px" }}>
-            Go Go Royal Expression Transport Service
+            Royal Expression Transport Service
           </h4>
           <nav>
             <a href="/"> Log Out</a>
