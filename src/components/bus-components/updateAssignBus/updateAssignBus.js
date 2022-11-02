@@ -6,6 +6,9 @@ import Swal from "sweetalert2";
 const UpdateAssignBus = () => {
 
 
+    const currentDate = new Date();
+    const today = (currentDate.getFullYear() + '-' + ((currentDate.getMonth() > 8) ? (currentDate.getMonth() + 1) : ('0' + (currentDate.getMonth() + 1))) + '-' + ((currentDate.getDate() > 9) ? currentDate.getDate() : ('0' + currentDate.getDate())));
+
 
     //state variables
     let [busDate, setBusDate] = useState("");
@@ -67,7 +70,7 @@ const UpdateAssignBus = () => {
     console.log("mata baaaaaaaaaaaaaaaaaaaaaaaaaa")
 
     const x = async () => {
-     
+
         console.log(JSON.parse(sessionStorage.getItem("busDetails")))
     }
     const getUser = async () => {
@@ -75,7 +78,7 @@ const UpdateAssignBus = () => {
             // const bus = JSON.parse(sessionStorage.getItem("busDetails"));
             // console.log("update session ", bus)
             const a = window.sessionStorage.getItem('busDetails');
-            console.log("aaaaaaaaaaa",a)
+            console.log("aaaaaaaaaaa", a)
 
             const response = await axios.get('http://localhost:5050/bus/' + a);
 
@@ -123,14 +126,14 @@ const UpdateAssignBus = () => {
         }
 
         const a = window.sessionStorage.getItem('busDetails');
-        console.log("aaaaaaaaaaa",a)
+        console.log("aaaaaaaaaaa", a)
 
 
         axios.post('http://localhost:5050/bus/update/' + a, busDetails)
 
             .then((res) => {
 
-                console.log("after updates" , res)
+                console.log("after updates", res)
 
                 Swal.fire({
                     title: "Success!",
@@ -169,6 +172,7 @@ const UpdateAssignBus = () => {
                                             name='busDate'
                                             onChange={busDateUpdate}
                                             value={busDate}
+                                            min={today}
                                             required
                                             className="form-control"
                                         />
@@ -223,8 +227,7 @@ const UpdateAssignBus = () => {
                                     <Col>
                                         <label style={{ fontWeight: "bold" }}>Starting Time    :</label><br></br>
                                         <input
-                                            type="text"
-                                            placeholder='Starting Time'
+                                            type="time"
                                             name='startingTime'
                                             onChange={startingTimeUpdate}
                                             value={startingTime}
@@ -238,8 +241,7 @@ const UpdateAssignBus = () => {
                                     <Col>
                                         <label style={{ fontWeight: "bold" }}>Arrive Time   :</label><br></br>
                                         <input
-                                            type="text"
-                                            placeholder='Address 2'
+                                            type="time"
                                             name='arriveTime'
                                             onChange={arriveTimeUpdate}
                                             value={arriveTime}
@@ -273,7 +275,9 @@ const UpdateAssignBus = () => {
                                     <Col>
                                         <label style={{ fontWeight: "bold" }}>Driver Contact    :</label><br></br>
                                         <input
-                                            type="text"
+                                            type="tel"
+                                            pattern="[0-9]{10}"
+                                            title="Driver Contact length should not exceed 10 numbers and not valid any characters"
                                             placeholder='Driver Contact'
                                             name='driverContact'
                                             onChange={driverContactUpdate}
@@ -308,7 +312,9 @@ const UpdateAssignBus = () => {
                                     <Col>
                                         <label style={{ fontWeight: "bold" }}>Inspector Contact    :</label><br></br>
                                         <input
-                                            type="text"
+                                            type="tel"
+                                            pattern="[0-9]{10}"
+                                            title="Driver Contact length should not exceed 10 numbers and not valid any characters"
                                             placeholder='Driver Contact'
                                             name='inspectorContact'
                                             onChange={inspectorContactUpdate}
@@ -320,7 +326,7 @@ const UpdateAssignBus = () => {
                                 </Row>
 
 
-                                <button type='submit' className="btn btn-success" style={{ marginBottom: "50px", marginTop: "35px", marginLeft: "320px"}}>Update</button>
+                                <button type='submit' className="btn btn-success" style={{ marginBottom: "50px", marginTop: "35px", marginLeft: "320px" }}>Update</button>
 
                             </Container>
                         </form>

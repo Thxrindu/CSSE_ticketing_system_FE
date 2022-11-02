@@ -28,7 +28,7 @@ function LocalPassengers() {
         {
             name: 'Passenger Type',
             selector: row => row.type,
-            width: '150px'
+            width: '140px'
         },
         {
             name: 'Passenger NIC',
@@ -39,20 +39,20 @@ function LocalPassengers() {
             name: 'Passenger Name',
             selector: row => row.name,
             sortable: true,
-            width: "250px"
+            width: "240px"
         },
         {
             name: 'Contact No',
             selector: row => row.contactNo,
             sortable: true,
-            width: '250px'
+            width: '240px'
 
         },
         {
             name: 'Email Address',
             selector: row => row.email,
             sortable: true,
-            width: '280px'
+            width: '270px'
 
         }
     ];
@@ -90,7 +90,7 @@ function LocalPassengers() {
     // normal search
     useEffect(() => {
         const result = items.filter((item) => {
-            return item.idNumber.toLowerCase().match(search.toLowerCase());
+            return item.idNumber.toLowerCase().match(search.toLowerCase()) || item.name.toLowerCase().match(search.toLowerCase());
         });
         setFilteredItems(result);
     }, [search])

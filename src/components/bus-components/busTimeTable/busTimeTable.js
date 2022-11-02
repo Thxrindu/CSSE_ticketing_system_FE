@@ -34,7 +34,7 @@ function BusTimeTable() {
         {
             name: 'Bus No',
             selector: row => row.busNo,
-            width: '90px'
+            width: '100px'
         },
         {
             name: 'Start location',
@@ -140,7 +140,7 @@ function BusTimeTable() {
     // normal search
     useEffect(() => {
         const result = items.filter((item) => {
-            return item.busNo.toLowerCase().match(search.toLowerCase());
+            return item.busNo.toLowerCase().match(search.toLowerCase()) || item.driverName.toLowerCase().match(search.toLowerCase()) || item.inspectorName.toLowerCase().match(search.toLowerCase()) || item.startLocation.toLowerCase().match(search.toLowerCase()) || item.arriveLocation.toLowerCase().match(search.toLowerCase()) || item.startingTime.toLowerCase().match(search.toLowerCase());
         });
         setFilteredItems(result);
     }, [search])
@@ -341,7 +341,7 @@ function BusTimeTable() {
                                     </form>
                                     <input
                                         type="text"
-                                        placeholder="Search Bus Number.."
+                                        placeholder="Search Here.."
                                         className="w-25 form-control"
                                         value={search}
                                         onChange={(e) => setSearch(e.target.value)}

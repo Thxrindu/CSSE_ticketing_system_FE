@@ -25,15 +25,7 @@ const AdminDashboard = () => {
             setItems(res.data);
 
             const currentDate = new Date();
-            const today = `${currentDate.getFullYear()}-${currentDate.getMonth() + 1}-${currentDate.getDate()}`;
-            // console.log("today", today)
-            // console.log("inserted date", res.data[7].busDate.split("T")[0])
-
-            // if (today == res.data[7].busDate.split("T")[0]) {
-            //     console.log("equallllllllll")
-            // }else{
-            //     console.log("not equallllllllll")
-            // }
+            const today = (currentDate.getFullYear() + '-' + ((currentDate.getMonth() > 8) ? (currentDate.getMonth() + 1) : ('0' + (currentDate.getMonth() + 1))) + '-' + ((currentDate.getDate() > 9) ? currentDate.getDate() : ('0' + currentDate.getDate())));
 
             var count = 0;
             for (let i = 0; i < res.data.length; i++) {
@@ -47,10 +39,13 @@ const AdminDashboard = () => {
             for (let i = 0; i < res.data.length; i++) {
                 if (res.data[i].busDate.split("T")[0] === today) {
                     count2++
-                    setTodayBusCount(count2);
                 }
+                // console.log("todayyy bus ", res.data[i])
+                console.log("todayyy bus ", count2)
+                console.log("todayyy ", today)
             }
 
+            setTodayBusCount(count2);
             console.log("final today bus count", count2)
 
         })
@@ -60,7 +55,7 @@ const AdminDashboard = () => {
     function getItems() {
         axios.get("http://localhost:5050/bus").then((res) => {
 
-            console.log("all bus", res.data)
+            // console.log("all bus", res.data)
 
             setItems(res.data);
             setBusDate(res.data.busDate);
@@ -72,7 +67,7 @@ const AdminDashboard = () => {
             }
             setBusCount(count);
 
-            console.log("bus count", BusCount)
+            // console.log("bus count", count)
 
 
         })
@@ -103,37 +98,60 @@ const AdminDashboard = () => {
         <div >
             <AdminSidebar1 />
             <div className="section-to-print">
-                <div className="container" style={{ marginLeft: "350px", marginTop: "100px", marginBottom: "20px" }}>
+                <div className="container" style={{ marginLeft: "350px", marginTop: "80px", marginBottom: "" }}>
                     <table>
                         <thead>
                             <tr>
                                 <td>
-                                    <div class="card">
-                                        <img style={{ marginLeft: "230px", marginTop: "20px", width: "200px", borderRadius: "25px" }} src="../images/bus2.png"></img>
-                                        <h4 style={{ textAlign: "center" }}><b>Total Number of Buses</b></h4>
-                                        <h5 style={{ textAlign: "center" }} >{BusCount}</h5>
+                                    <div class="card" style={{ height: "210px" , marginTop:"-30px"}}>
+                                        <div class="row">
+                                            <div class="column">
+                                                <img style={{ marginLeft: "60px", marginTop: "10px", width: "200px", borderRadius: "25px" }} src="../images/bus2.png"></img>
+                                            </div>
+                                            <div class="column" style={{ marginLeft: "-20px", marginTop: "60px", width: "200px", borderRadius: "25px" }} >
+                                                <h6 style={{ textAlign: "center", fontSize: '24px' }}><b>Total Number  of Assign Buses</b></h6>
+                                                <h5 style={{ textAlign: "center", marginTop: "20px" }} >{BusCount}</h5>
+                                            </div>
+                                        </div>
                                     </div>
                                 </td>
                                 <td>
                                     <div class="card2" style={{ width: "", marginLeft: "50px" }}>
-                                        <Calendar onChange={onChange} value={value} />
+                                        <Calendar onChange={onChange} value={value}/>
                                     </div>
                                 </td>
 
                             </tr>
                             <tr>
                                 <td>
-                                    <div class="card1">
-                                        <img style={{ marginLeft: "140px", marginTop: "20px", width: "200px", borderRadius: "25px" }} src="../images/money1.png"></img>
-                                        <h4 style={{ textAlign: "center" }}><b>Total Fares Today</b></h4>
-                                        <h5 style={{ textAlign: "center" }} >Rs. 14,000/=</h5>
+                                    <div class="card1" style={{ height: "240px" , marginTop:"-20px" }}>
+                                        <div class="row">
+                                            <div class="column">
+                                                <img style={{ marginLeft: "40px", marginTop: "10px", width: "200px", borderRadius: "25px" }} src="../images/money1.png"></img>
+                                            </div>
+                                            <div class="column" style={{ marginLeft: "-20px", marginTop: "60px", width: "200px", borderRadius: "25px" }} >
+
+
+                                                <h4 style={{ textAlign: "center" }}><b>Total Fares Today</b></h4>
+                                                <h5 style={{ textAlign: "center" }} >Rs. 14,000/=</h5>
+                                            </div>
+                                        </div>
+
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="card1" style={{ width: "", marginLeft: "-100px" }}>
-                                        <img style={{ marginLeft: "140px", marginTop: "20px", width: "200px", borderRadius: "25px" }} src="../images/money2.png"></img>
-                                        <h4 style={{ textAlign: "center" }}><b>Total Finance Today</b></h4>
-                                        <h5 style={{ textAlign: "center" }} >Rs. 1,500/=</h5>
+                                    <div class="card1" style={{ height: "200px" , width: "", marginLeft: "-100px" }}>
+                                        <div class="row">
+                                            <div class="column">
+                                                <img style={{ marginLeft: "40px", marginTop: "10px", width: "200px", borderRadius: "25px" }} src="../images/money2.png"></img>
+                                            </div>
+                                            <div class="column" style={{ marginLeft: "-20px", marginTop: "40px", width: "200px", borderRadius: "25px" }} >
+                                                <h4 style={{ textAlign: "center" }}><b>Total Finance Today</b></h4>
+                                                <h5 style={{ textAlign: "center" }} >Rs. 1,500/=</h5>
+                                            </div>
+                                        </div>
+
+
                                     </div>
                                 </td>
                             </tr>
@@ -142,13 +160,13 @@ const AdminDashboard = () => {
                             </tr>
                         </thead>
                     </table>
-                    <div style={{ marginTop: "20px", marginLeft: "0px", width: "1050px" }}>
+                    <div style={{ marginTop: "20px", marginLeft: "0px", width: "1050px" , height:"300px"}}>
                         <Chart
                             chartType="PieChart"
                             data={data01}
                             options={options1}
-                            width={"100%"}
-                            height={"400px"}
+                            width={"1050px"}
+                            height={"250px"}
                         />
                     </div>
                     {/* <Container> */}
@@ -201,7 +219,7 @@ const AdminDashboard = () => {
                 </div>
             </div>
             <div style={{ textAlign: "center", marginBottom: "30px" }}>
-                <button className="reportbtn" style={{backgroundColor:"rgba(0, 254, 8, 0.852)" , borderRadius:"10px" , height:"30px" , marginLeft:"500px"}} onClick={() => window.print()}>Print</button>
+                {/* <button className="reportbtn" style={{ backgroundColor: "rgba(0, 254, 8, 0.852)", borderRadius: "10px", height: "30px", marginLeft: "500px" }} onClick={() => window.print()}>Print</button> */}
             </div>
 
         </div>

@@ -130,8 +130,10 @@ function TravelHistory() {
             // setItems(response.data);
             // setFilteredItems(response.data);
 
+            
             const currentDate = new Date();
-            const today = `${currentDate.getFullYear()}-${currentDate.getMonth() + 1}-${currentDate.getDate()}`;
+            const today = (currentDate.getFullYear() + '-' + ((currentDate.getMonth() > 8) ? (currentDate.getMonth() + 1) : ('0' + (currentDate.getMonth() + 1))) + '-' + ((currentDate.getDate() > 9) ? currentDate.getDate() : ('0' + currentDate.getDate())));
+
 
 
             let temp = [];
@@ -161,7 +163,7 @@ function TravelHistory() {
     // normal search
     useEffect(() => {
         const result = items.filter((item) => {
-            return item.busNo.toLowerCase().match(search.toLowerCase());
+            return item.busNo.toLowerCase().match(search.toLowerCase()) || item.driverName.toLowerCase().match(search.toLowerCase()) || item.inspectorName.toLowerCase().match(search.toLowerCase()) || item.startLocation.toLowerCase().match(search.toLowerCase()) || item.arriveLocation.toLowerCase().match(search.toLowerCase()) || item.startingTime.toLowerCase().match(search.toLowerCase());
         });
         setFilteredItems(result);
     }, [search])
@@ -219,7 +221,7 @@ function TravelHistory() {
                                 <>
                                     <input
                                         type="text"
-                                        placeholder="Search Bus Number.."
+                                        placeholder="Search Here.."
                                         className="w-25 form-control"
                                         value={search}
                                         onChange={(e) => setSearch(e.target.value)}

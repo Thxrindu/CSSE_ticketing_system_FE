@@ -83,16 +83,24 @@ const PassengerReport = () => {
         <div >
             <AdminSidebar1 />
             <div className="section-to-print">
-                <div className="container" style={{ marginLeft: "350px", marginTop: "100px", marginBottom: "20px" }}>
-                    <h1 style={{ marginLeft: "50px",marginTop: "110px", marginBottom: "30px" }}>Passenger Report</h1>
+                <div className="container" style={{ marginLeft: "350px", marginTop: "-30px", marginBottom: "20px" }}>
+                    <h1 style={{ marginLeft: "50px", marginTop: "110px", marginBottom: "10px" }}>Passenger Report</h1>
                     <table>
                         <thead>
                             <tr>
                                 <td>
-                                    <div class="card">
-                                        <img style={{ marginLeft: "230px", marginTop: "20px", width: "200px", borderRadius: "25px" }} src="../images/passenger.png"></img>
-                                        <h4 style={{ textAlign: "center" }}><b>Total Number of Passengers</b></h4>
-                                        <h5 style={{ textAlign: "center" }} >{PassengersCount}</h5>
+                                    <div class="card" style={{ height: "210px", marginTop: "-50px" }}>
+                                        <div class="row">
+                                            <div class="column">
+
+                                                <img style={{ marginLeft: "60px", marginTop: "5px", width: "200px", borderRadius: "25px" }} src="../images/passenger.png"></img>
+                                            </div>
+                                            <div class="column" style={{ marginLeft: "-20px", marginTop: "60px", width: "200px", borderRadius: "25px" }} >
+                                                <h4 style={{ textAlign: "center" }}><b>Total Number of Passengers</b></h4>
+                                                <h5 style={{ textAlign: "center" }} >{PassengersCount}</h5>
+                                            </div>
+                                        </div>
+
                                     </div>
                                 </td>
                                 <td>
@@ -104,17 +112,35 @@ const PassengerReport = () => {
                             </tr>
                             <tr>
                                 <td>
-                                    <div class="card1">
-                                        <img style={{ marginLeft: "140px", marginTop: "20px", width: "200px", borderRadius: "25px" }} src="../images/world.png"></img>
-                                        <h4 style={{ textAlign: "center" }}><b>Foreign Passengers</b></h4>
-                                        <h5 style={{ textAlign: "center" }} >{PassengersCount - LocalPassengersCount}</h5>
+                                    <div class="card1" style={{ height: "240px", marginTop: "-40px" }}>
+                                        <div class="row">
+                                            <div class="column">
+                                                <img style={{ marginLeft: "40px", marginTop: "10px", width: "200px", borderRadius: "25px" }} src="../images/world.png"></img>
+                                            </div>
+                                            <div class="column" style={{ marginLeft: "-20px", marginTop: "60px", width: "200px", borderRadius: "25px" }} >
+                                                <h4 style={{ textAlign: "center" }}><b>Foreign Passengers</b></h4>
+                                                <h5 style={{ textAlign: "center" }} >{PassengersCount - LocalPassengersCount}</h5>
+                                            </div>
+                                        </div>
+
+
+
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="card1" style={{ width: "", marginLeft: "-100px" }}>
-                                        <img style={{ marginLeft: "140px", marginTop: "20px", width: "200px", borderRadius: "25px" }} src="../images/sriLanka.png"></img>
-                                        <h4 style={{ textAlign: "center" }}><b>Local Passengers</b></h4>
-                                        <h5 style={{ textAlign: "center" }} >{LocalPassengersCount}</h5>
+                                    <div class="card1" style={{ height: "210px", marginLeft: "-100px" }}>
+                                        <div class="row">
+                                            <div class="column">
+                                                <img style={{ marginLeft: "40px", marginTop: "10px", width: "180px", borderRadius: "25px" }} src="../images/sriLanka.png"></img>
+                                            </div>
+                                            <div class="column" style={{ marginLeft: "-20px", marginTop: "60px", width: "200px", borderRadius: "25px" }} >
+
+
+                                                <h4 style={{ textAlign: "center" }}><b>Local Passengers</b></h4>
+                                                <h5 style={{ textAlign: "center" }} >{LocalPassengersCount}</h5>
+                                            </div>
+                                        </div>
+
                                     </div>
                                 </td>
                             </tr>
@@ -128,8 +154,8 @@ const PassengerReport = () => {
                             chartType="PieChart"
                             data={data1}
                             options={options1}
-                            width={"100%"}
-                            height={"400px"}
+                            width={"1050px"}
+                            height={"250px"}
                         />
                     </div>
 
