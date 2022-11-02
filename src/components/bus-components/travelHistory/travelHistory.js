@@ -1,19 +1,11 @@
 import axios from "axios";
-import { Modal } from "react-bootstrap";
 import { Fragment, useEffect, useState } from "react";
 import DataTable from "react-data-table-component";
 import "./allUsers.css";
 import "./tabledata.css";
 import styles from './style.module.css';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowAltCircleLeft } from "@fortawesome/free-regular-svg-icons";
 import Swal from "sweetalert2";
-import { Link } from "react-router-dom";
 import AdminSidebar1 from "../adminDashboard/sideBar";
-import { Col, Container, Row } from "react-bootstrap";
-import UpdateAssignBus from "../updateAssignBus/updateAssignBus";
-// import InsertPoliceFinesDetails from "../insert/insertPoliceFineData";
-// import UpdatePoliceFinesDetails from "../update/updatePoliceFineData";
 
 
 function TravelHistory() {
@@ -83,7 +75,6 @@ function TravelHistory() {
             cell: (row) =>
                 <>
                     <Fragment>
-                        {/* <button onClick={() => openUpdateModal(row._id)} type="button" className=" editbtn btn btn-outline-secondary btn-sm" >  Edit</button> */}
                         <button onClick={() => onSubmit(row._id)} type="button" className="btn btn-outline-danger btn-sm" > Delete</button>
                     </Fragment>
                 </>
@@ -126,11 +117,6 @@ function TravelHistory() {
             const user = JSON.parse(sessionStorage.getItem("policemen"));
             const response = await axios.get('http://localhost:5050/bus/');
 
-            console.log("response", response)
-            // setItems(response.data);
-            // setFilteredItems(response.data);
-
-            
             const currentDate = new Date();
             const today = (currentDate.getFullYear() + '-' + ((currentDate.getMonth() > 8) ? (currentDate.getMonth() + 1) : ('0' + (currentDate.getMonth() + 1))) + '-' + ((currentDate.getDate() > 9) ? currentDate.getDate() : ('0' + currentDate.getDate())));
 
@@ -140,19 +126,15 @@ function TravelHistory() {
 
             for (let i = 0; i < response.data.length; i++) {
                 if (response.data[i].busDate.split("T")[0] < today) {
-                    console.log("historyyyyyyyyyyyyyyyy", response.data[i])
 
                     temp.push(response.data[i])
-            
+
                 }
             }
             setItems(temp);
             setFilteredItems(temp);
 
-            console.log("historyyyyy 11111111111", temp)
-
         } catch (err) {
-            console.log(err);
         }
     }
 
@@ -173,32 +155,12 @@ function TravelHistory() {
 
     }
 
-    const goBack = () => {
-        // window.location = "/user-admin-dashboard"
-    }
-
-    // const openInsertModal = () => {
-    //     setModal(true);
-    // }
-
-    // const closeInsertModal = () => setModal(false);
-
     const openUpdateModal = (data) => {
         setUpdateModal(true);
         window.sessionStorage.setItem("busDetails", data);
 
     }
 
-    // const closeUpdateModal = () => setUpdateModal(false);
-
-    // const ModalContent = () => {
-    //     return (
-    //         <Modal show={updateModal} onHide={closeUpdateModal} backdrop="static" size="lg">
-
-
-    //         </Modal>
-    //     )
-    // }
 
     return (
         <>
@@ -231,7 +193,6 @@ function TravelHistory() {
                                 </>
                             }
                         />
-                        {/* {updateModal ? <ModalContent /> : null} */}
                     </div>
                 </div>
             </div>

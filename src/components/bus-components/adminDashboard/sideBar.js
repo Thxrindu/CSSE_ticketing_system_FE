@@ -3,8 +3,6 @@ import AdminNav from '../../navbars/AdminNav';
 import './style.css';
 import './adminButton.css';
 
-// style={{width:"200px" , height:"40px", backgroundColor:"rgba(214, 25, 192, 0.792)"}}
-
 
 const AdminSidebar1 = () => {
 
@@ -14,14 +12,14 @@ const AdminSidebar1 = () => {
             <section id="sidebar">
                 <a href="#" class="brand">
                     <i ></i>
-                    <span  style={{color:"black" , marginLeft:"40px", marginTop:"20px"}} >Admin Dashboard</span>
+                    <span style={{ color: "black", marginLeft: "40px", marginTop: "20px" }} >Admin Dashboard</span>
                 </a>
                 <ul class="side-menu top">
                     <span>Dashboard</span>
                     <li class="" >
                         <a href="/dashboard" >
                             <i class='bx bxs-dashboard' ></i>
-                            <span class="text" style={{fontWeight:"bold"}}>Dashboard</span>
+                            <span class="text" style={{ fontWeight: "bold" }}>Dashboard</span>
                         </a>
                     </li>
                     <br></br>
@@ -29,7 +27,7 @@ const AdminSidebar1 = () => {
                     <li>
                         <a href="/travel-history" >
                             <i class='bx bxs-time' ></i>
-                            <span class="text" style={{fontWeight:"bold"}}>Travel History</span>
+                            <span class="text" style={{ fontWeight: "bold" }}>Travel History</span>
                         </a>
                     </li>
                     <li>
@@ -68,23 +66,13 @@ const AdminSidebar1 = () => {
                         </a>
                     </li>
                 </ul>
-                {/* <ul class="side-menu">
 
-                    <li>
-                        <a href="../loginpage.php" class="logout" >
-                            <i class='bx bxs-log-out-circle' ></i>
-                            <span class="text">Logout</span>
-                        </a>
-                    </li>
-                </ul> */}
             </section>
 
 
-            {/* nav bar */}
             <nav>
                 <AdminNav />
             </nav>
-{/* bx bxs-shopping-bag-alt */}
 
 
         </div>

@@ -6,7 +6,7 @@ import './style.css';
 import AdminSidebar1 from "../adminDashboard/sideBar";
 const AssignBus = () => {
 
-    
+
     const currentDate = new Date();
     const today = (currentDate.getFullYear() + '-' + ((currentDate.getMonth() > 8) ? (currentDate.getMonth() + 1) : ('0' + (currentDate.getMonth() + 1))) + '-' + ((currentDate.getDate() > 9) ? currentDate.getDate() : ('0' + currentDate.getDate())));
 
@@ -59,7 +59,6 @@ const AssignBus = () => {
         catch (error) {
 
             if (error.response && error.response.status >= 400 && error.response.status <= 500) {
-                // setError(error.response.data.message);
                 alert(error.response.data.message)
             }
         }
@@ -83,168 +82,6 @@ const AssignBus = () => {
                 <form onSubmit={handleSubmit}>
                     <h2 style={{ marginTop: "10px", marginBottom: "30px", marginLeft: "100px" }}>Travel Details</h2>
                     <div className="">
-                        {/* <Container>
-                            <Row>
-                                <Col>
-                                    <label style={{ fontWeight: "bold" }} >Enter Date    :</label>
-                                    <input
-                                        type="date"
-                                        name='busDate'
-                                        onChange={handleChange}
-                                        value={data.busDate}
-                                        required
-                                        className="form-control"
-                                    />
-                                </Col>
-
-                            </Row>
-                            <Row>
-                                <Col>
-                                    <label style={{ fontWeight: "bold" }}>Bus No    :</label><br></br>
-                                    <input
-                                        type="text"
-                                        placeholder='Bus No'
-                                        name='busNo'
-                                        onChange={handleChange}
-                                        value={data.busNo}
-                                        required
-                                        className="form-control"
-                                    />
-                                </Col>
-                            </Row>
-                            <Row>
-                                <Col >
-                                    <label style={{ fontWeight: "bold" }}>Starting Location    :</label><br></br>
-                                    <input
-                                        type="text"
-                                        placeholder='Starting Location'
-                                        name='startLocation'
-                                        onChange={handleChange}
-                                        value={data.startLocation}
-                                        required
-                                        className="form-control"
-                                    />
-                                </Col>
-
-                            </Row>
-                            <Row>
-                                <Col >
-                                    <label style={{ fontWeight: "bold" }}>Arrive Location    :</label><br></br>
-                                    <input
-                                        type="text"
-                                        placeholder='Your Arrive Location'
-                                        name='arriveLocation'
-                                        onChange={handleChange}
-                                        value={data.arriveLocation}
-                                        required
-                                        className="form-control"
-                                    />
-                                </Col>
-                            </Row>
-
-                            <Row>
-                                <Col >
-                                    <label style={{ fontWeight: "bold" }}>Starting Time    :</label><br></br>
-                                    <input
-                                        type="text"
-                                        placeholder='Starting Time'
-                                        name='startingTime'
-                                        onChange={handleChange}
-                                        value={data.startingTime}
-                                        required
-                                        className="form-control"
-                                    />
-                                </Col>
-
-                            </Row>
-                            <Row>
-                                <Col >
-                                    <label style={{ fontWeight: "bold" }}>Arrive Time   :</label><br></br>
-                                    <input
-                                        type="text"
-                                        placeholder='Address 2'
-                                        name='arriveTime'
-                                        onChange={handleChange}
-                                        value={data.arriveTime}
-                                        required
-                                        className="form-control"
-                                    />
-                                </Col>
-                            </Row>
-
-                        </Container>
-
-                        <h3 style={{ marginTop: "50px", marginBottom: "30px", marginLeft: "100px" }}>Driver Details</h3>
-
-                        <Container>
-                            <Row>
-                                <Col >
-                                    <label style={{ fontWeight: "bold" }}>Assign Driver    :</label><br></br>
-                                    <input
-                                        type="text"
-                                        placeholder='Assign Driver name'
-                                        name='driverName'
-                                        onChange={handleChange}
-                                        value={data.driverName}
-                                        required
-                                        className="form-control"
-                                    />
-                                </Col>
-
-                            </Row>
-                            <Row>
-                                <Col >
-                                    <label style={{ fontWeight: "bold" }}>Driver Contact    :</label><br></br>
-                                    <input
-                                        type="text"
-                                        placeholder='Driver Contact'
-                                        name='driverContact'
-                                        onChange={handleChange}
-                                        value={data.driverContact}
-                                        required
-                                        className="form-control"
-                                    />
-                                </Col>
-                            </Row>
-
-                        </Container>
-
-                        <h3 style={{ marginTop: "50px", marginBottom: "30px", marginLeft: "100px" }}>Inspector Details</h3>
-
-                        <Container>
-                            <Row>
-                                <Col >
-                                    <label style={{ fontWeight: "bold" }}>Assign Inspector    :</label><br></br>
-                                    <input
-                                        type="text"
-                                        placeholder='Assign Inspector name'
-                                        name='inspectorName'
-                                        onChange={handleChange}
-                                        value={data.inspectorName}
-                                        required
-                                        className="form-control"
-                                    />
-                                </Col>
-
-                            </Row>
-                            <Row>
-                                <Col >
-                                    <label style={{ fontWeight: "bold" }}>Inspector Contact    :</label><br></br>
-                                    <input
-                                        type="text"
-                                        placeholder='Driver Contact'
-                                        name='inspectorContact'
-                                        onChange={handleChange}
-                                        value={data.inspectorContact}
-                                        required
-                                        className="form-control"
-                                    />
-                                </Col>
-                            </Row>
-
-
-                            <button type='submit' className="reportbtn" style={{backgroundColor:"rgba(0, 254, 8, 0.852)" , borderRadius:"10px" , height:"30px" , marginLeft:"200px",  marginBottom: "50px", marginTop: "35px" }}>Assign Now</button>
-                        </Container> */}
                         <Container>
                             <Row>
                                 <Col>

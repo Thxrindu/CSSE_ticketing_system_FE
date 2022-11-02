@@ -18,7 +18,6 @@ export default function PaymentInputs() {
 
     const submit = (e) => {
         e.preventDefault();
-        console.log('a', cardNumber);
     }
 
     return (
@@ -33,7 +32,7 @@ export default function PaymentInputs() {
                 <input {...getCVCProps()} />
                 <small>{erroredInputs.cvc && erroredInputs.cvc}</small>
 
-                <input type='submit'/>
+                <input type='submit' />
             </form>
         </div>
     );

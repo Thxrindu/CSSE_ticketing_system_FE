@@ -20,7 +20,6 @@ function MyBalance() {
             else
                 temp1 = false;
         } catch (err) {
-            console.log(err);
         }
     }
 
@@ -44,14 +43,14 @@ function MyBalance() {
             <hr></hr>
 
             <h5 style={{ color: 'darkBlue' }}> Account Balance</h5>
-            <h3 style={{ color: 'darkBlue', fontWeight: 'bold' ,marginBottom:'20px'}}> Rs.{balance} </h3>
+            <h3 style={{ color: 'darkBlue', fontWeight: 'bold', marginBottom: '20px' }}> Rs.{balance} </h3>
 
             <h5 style={{ color: '#128a76' }}> Day Pass Status</h5>
-            {dailyPass ? <h3 style={{ color: '#128a76', fontWeight: 'bold',marginBottom:'20px' }}> Active</h3> :
-                <h3 style={{ color: '#128a76', fontWeight: 'bold',marginBottom:'20px' }}> Inactive</h3>}
+            {dailyPass ? <h3 style={{ color: '#128a76', fontWeight: 'bold', marginBottom: '20px' }}> Active</h3> :
+                <h3 style={{ color: '#128a76', fontWeight: 'bold', marginBottom: '20px' }}> Inactive</h3>}
 
             <h5 style={{ color: 'red' }}> Fine amounts</h5>
-            <h3 style={{ color: 'red', fontWeight: 'bold',marginBottom:'20px' }}> Rs.{loan} </h3>
+            <h3 style={{ color: 'red', fontWeight: 'bold', marginBottom: '20px' }}> Rs.{loan} </h3>
 
         </div>
     )
